@@ -19,9 +19,22 @@ var nombreColores = ['White', 'LightYellow',
   'MediumPurple', 'Lavender', 'Gainsboro', 'LightGray', 'Silver', 'DarkGray', 'Gray',
   'DimGray', 'LightSlateGray', 'DarkSlateGray', 'Black'
 ];
-//guardo el elemento con id paleta.
-var elPaleta = document.getElementById('paleta');
-var elGrillaPixeles = document.getElementById('grilla-pixeles');
+//guardo el elemento con id paleta. Con Jquery
+var $elPaleta = $("#paleta");
+var $elGrillaPixeles = $("#grilla-pixeles");
+
+
+/**
+ * Genera dinamicamente la paleta de colores
+ */
+function generarPaletaDeColores() { 
+    nombreColores.forEach(function paleta(color){
+        var $color = $('<div>',{"class":'color_paleta'}).css({"background-color": color});
+        $elPaleta.append($color);
+      });
+}
+
+generarPaletaDeColores();
 
 // Variable para guardar el elemento 'color-personalizado'
 // Es decir, el que se elige con la rueda de color.
