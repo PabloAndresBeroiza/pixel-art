@@ -36,6 +36,16 @@ function generarPaletaDeColores() {
 
 generarPaletaDeColores();
 
+/**
+ * funcion que crea la grilla. Inserta un div por cada pixel.
+ */
+function grilla(){
+    for (var i=0; i<=1748; i++){
+    $elGrillaPixeles.append($("<div>"));
+   }
+  }
+grilla();
+
 // Variable para guardar el elemento 'color-personalizado'
 // Es decir, el que se elige con la rueda de color.
 var colorPersonalizado = document.getElementById('color-personalizado');
