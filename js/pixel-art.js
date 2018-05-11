@@ -19,6 +19,9 @@ var nombreColores = ['White', 'LightYellow',
   'MediumPurple', 'Lavender', 'Gainsboro', 'LightGray', 'Silver', 'DarkGray', 'Gray',
   'DimGray', 'LightSlateGray', 'DarkSlateGray', 'Black'
 ];
+//guardo el elemento con id paleta.
+var elPaleta = document.getElementById('paleta');
+var elGrillaPixeles = document.getElementById('grilla-pixeles');
 
 // Variable para guardar el elemento 'color-personalizado'
 // Es decir, el que se elige con la rueda de color.
