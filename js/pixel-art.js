@@ -71,14 +71,13 @@ $elGrillaPixeles.children().click(function(){
 // Variable para guardar el elemento 'color-personalizado'
 // Es decir, el que se elige con la rueda de color.
 //var colorPersonalizado = document.getElementById('color-personalizado');
-//var $colorPersonalizado = $("#color-personalizado");
-//$colorPersonalizado.addEventListener('change', 
-//  (function() {
-//    // Se guarda el color de la rueda en colorActual
-////    colorActual = colorPersonalizado.value;
-//    var $colorActual = $colorPersonalizado.val();
-//    // Completar para que cambie el indicador-de-color al colorActual
-//    $("#indicador-de-color").css({"background-color": $colorActual});
-//
-//  })
-//);
+var $colorPersonalizado = $("#color-personalizado");
+$colorPersonalizado.addEventListener('change', (function() {
+    // Se guarda el color de la rueda en colorActual
+//   var colorActual = colorPersonalizado.value;
+    var $colorActual = $colorPersonalizado.val();
+    // Completar para que cambie el indicador-de-color al colorActual
+    //Completado
+    $("#indicador-de-color").css({"background-color": $colorActual});
+  })
+);
