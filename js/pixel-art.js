@@ -58,4 +58,27 @@ $elPaleta.children().click(function(){
     $("#indicador-de-color-mensaje").html($color);
   }); 
 
-
+/*
+ * Al elemento desendiente de $elGrillaPixeles se le agrega un evento cuando se
+ * hace click. Guarda en la variable $color el color que esta en el elemnto 
+ * con id #indicador-de-color 
+ */
+$elGrillaPixeles.children().click(function(){
+    var $color= $("#indicador-de-color").css("background-color");
+    $(this).css({"background-color":$color});
+ });
+ 
+// Variable para guardar el elemento 'color-personalizado'
+// Es decir, el que se elige con la rueda de color.
+//var colorPersonalizado = document.getElementById('color-personalizado');
+//var $colorPersonalizado = $("#color-personalizado");
+//$colorPersonalizado.addEventListener('change', 
+//  (function() {
+//    // Se guarda el color de la rueda en colorActual
+////    colorActual = colorPersonalizado.value;
+//    var $colorActual = $colorPersonalizado.val();
+//    // Completar para que cambie el indicador-de-color al colorActual
+//    $("#indicador-de-color").css({"background-color": $colorActual});
+//
+//  })
+//);
