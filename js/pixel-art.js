@@ -81,3 +81,15 @@ $colorPersonalizado.addEventListener('change', (function() {
     $("#indicador-de-color").css({"background-color": $colorActual});
   })
 );
+
+//Variable que nos dice si esta' apretado el mouse
+var $ratonApretado = false;
+
+//Detecta si esta apretado el mause
+$elGrillaPixeles.children().mousedown(function(){
+    $ratonApretado = true;
+});
+//Detecta cuando deja de apretar el mause
+$elGrillaPixeles.children().mouseup(function(){
+    $ratonApretado = true;
+});
