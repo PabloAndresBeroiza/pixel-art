@@ -72,15 +72,14 @@ $elGrillaPixeles.children().click(function(){
 // Es decir, el que se elige con la rueda de color.
 //var colorPersonalizado = document.getElementById('color-personalizado');
 var $colorPersonalizado = $("#color-personalizado");
-$colorPersonalizado.addEventListener('change', (function() {
+$colorPersonalizado.addEventListener('change', function(){
     // Se guarda el color de la rueda en colorActual
 //   var colorActual = colorPersonalizado.value;
     var $colorActual = $colorPersonalizado.val();
     // Completar para que cambie el indicador-de-color al colorActual
     //Completado
     $("#indicador-de-color").css({"background-color": $colorActual});
-  })
-);
+  });
 
 //Variable que nos dice si esta' apretado el mouse
 var $ratonApretado = false;
@@ -92,4 +91,18 @@ $elGrillaPixeles.children().mousedown(function(){
 //Detecta cuando deja de apretar el mause
 $elGrillaPixeles.children().mouseup(function(){
     $ratonApretado = true;
+});
+
+/*
+ * Se le coloca evento mousemove para saber cuando esta apretado el mouse a los
+ * elementos de la grilla.
+ * Se guarda el color del indicador-de-color.
+ * Si la variable $ratonApretado es verdadera pinta la celda del color
+ * */
+$elGrillaPixeles.children().mousemove(function(){
+    var $color = $("#indicador-de-color").css("background-color");
+    console.log("Dentro de mousemove");
+    if($ratonApretado){
+        $(this).css({"background-color": $color});
+    }
 });
