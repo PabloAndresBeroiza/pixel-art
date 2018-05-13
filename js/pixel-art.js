@@ -1,23 +1,23 @@
-var nombreColores = ['White', 'LightYellow',
-  'LemonChiffon', 'LightGoldenrodYellow', 'PapayaWhip', 'Moccasin', 'PeachPuff', 'PaleGoldenrod', 'Bisque', 'NavajoWhite', 'Wheat', 'BurlyWood', 'Tan',
-  'Khaki', 'Yellow', 'Gold', 'Orange', 'DarkOrange', 'OrangeRed', 'Tomato', 'Coral', 'DarkSalmon', 'LightSalmon', 'LightCoral', 'Salmon', 'PaleVioletRed',
-  'Pink', 'LightPink', 'HotPink', 'DeepPink', 'MediumVioletRed', 'Crimson', 'Red', 'FireBrick', 'DarkRed', 'Maroon',
-  'Brown', 'Sienna', 'SaddleBrown', 'IndianRed', 'RosyBrown',
-  'SandyBrown', 'Goldenrod', 'DarkGoldenrod', 'Peru',
-  'Chocolate', 'DarkKhaki', 'DarkSeaGreen', 'MediumAquaMarine',
-  'MediumSeaGreen', 'SeaGreen', 'ForestGreen', 'Green', 'DarkGreen', 'OliveDrab', 'Olive', 'DarkOliveGreen', 'YellowGreen', 'LawnGreen',
-  'Chartreuse', 'GreenYellow', 'Lime', 'SpringGreen', 'LimeGreen',
-  'LightGreen', 'PaleGreen', 'PaleTurquoise',
-  'AquaMarine', 'Cyan', 'Turquoise', 'MediumTurquoise', 'DarkTurquoise', 'DeepSkyBlue',
-  'LightSeaGreen', 'CadetBlue', 'DarkCyan', 'Teal', 'Steelblue', 'LightSteelBlue', 'Honeydew', 'LightCyan',
-  'PowderBlue', 'LightBlue', 'SkyBlue', 'LightSkyBlue',
-  'DodgerBlue', 'CornflowerBlue', 'RoyalBlue', 'SlateBlue',
-  'MediumSlateBlue', 'DarkSlateBlue', 'Indigo', 'Purple', 'DarkMagenta', 'Blue',
-  'MediumBlue', 'DarkBlue', 'Navy', 'Thistle',
-  'Plum', 'Violet', 'Orchid', 'DarkOrchid', 'Fuchsia', 'Magenta', 'MediumOrchid',
-  'BlueViolet', 'DarkViolet', 'DarkOrchid',
-  'MediumPurple', 'Lavender', 'Gainsboro', 'LightGray', 'Silver', 'DarkGray', 'Gray',
-  'DimGray', 'LightSlateGray', 'DarkSlateGray', 'Black'
+var $nombreColores = ['White', 'LightYellow',
+    'LemonChiffon', 'LightGoldenrodYellow', 'PapayaWhip', 'Moccasin', 'PeachPuff', 'PaleGoldenrod', 'Bisque', 'NavajoWhite', 'Wheat', 'BurlyWood', 'Tan',
+    'Khaki', 'Yellow', 'Gold', 'Orange', 'DarkOrange', 'OrangeRed', 'Tomato', 'Coral', 'DarkSalmon', 'LightSalmon', 'LightCoral', 'Salmon', 'PaleVioletRed',
+    'Pink', 'LightPink', 'HotPink', 'DeepPink', 'MediumVioletRed', 'Crimson', 'Red', 'FireBrick', 'DarkRed', 'Maroon',
+    'Brown', 'Sienna', 'SaddleBrown', 'IndianRed', 'RosyBrown',
+    'SandyBrown', 'Goldenrod', 'DarkGoldenrod', 'Peru',
+    'Chocolate', 'DarkKhaki', 'DarkSeaGreen', 'MediumAquaMarine',
+    'MediumSeaGreen', 'SeaGreen', 'ForestGreen', 'Green', 'DarkGreen', 'OliveDrab', 'Olive', 'DarkOliveGreen', 'YellowGreen', 'LawnGreen',
+    'Chartreuse', 'GreenYellow', 'Lime', 'SpringGreen', 'LimeGreen',
+    'LightGreen', 'PaleGreen', 'PaleTurquoise',
+    'AquaMarine', 'Cyan', 'Turquoise', 'MediumTurquoise', 'DarkTurquoise', 'DeepSkyBlue',
+    'LightSeaGreen', 'CadetBlue', 'DarkCyan', 'Teal', 'Steelblue', 'LightSteelBlue', 'Honeydew', 'LightCyan',
+    'PowderBlue', 'LightBlue', 'SkyBlue', 'LightSkyBlue',
+    'DodgerBlue', 'CornflowerBlue', 'RoyalBlue', 'SlateBlue',
+    'MediumSlateBlue', 'DarkSlateBlue', 'Indigo', 'Purple', 'DarkMagenta', 'Blue',
+    'MediumBlue', 'DarkBlue', 'Navy', 'Thistle',
+    'Plum', 'Violet', 'Orchid', 'DarkOrchid', 'Fuchsia', 'Magenta', 'MediumOrchid',
+    'BlueViolet', 'DarkViolet', 'DarkOrchid',
+    'MediumPurple', 'Lavender', 'Gainsboro', 'LightGray', 'Silver', 'DarkGray', 'Gray',
+    'DimGray', 'LightSlateGray', 'DarkSlateGray', 'Black'
 ];
 //guardo el elemento con id paleta. Con Jquery
 var $elPaleta = $("#paleta");
@@ -27,11 +27,12 @@ var $elGrillaPixeles = $("#grilla-pixeles");
 /**
  * Genera dinamicamente la paleta de colores
  */
-function generarPaletaDeColores() { 
-    nombreColores.forEach(function(color){
-        var $color = $('<div>',{"class":'color_paleta'}).css({"background-color": color});
-        $elPaleta.append($color);
-      });
+function generarPaletaDeColores() {
+    $.each($nombreColores, function(i, color){
+        var $divHijo = $('<div>', {"class": 'color_paleta'}).css({"background-color": color});
+        console.log(color);
+        $elPaleta.append($divHijo);
+    });
 }
 
 generarPaletaDeColores();
@@ -39,10 +40,10 @@ generarPaletaDeColores();
 /**
  * funcion que genera la grilla. Inserta un div por cada pixel.
  */
-function generaGrilla(){
-    for (var i=0; i<=1748; i++){
-    $elGrillaPixeles.append($("<div>"));
-   }
+function generaGrilla() {
+    for (var i = 0; i <= 1748; i++) {
+        $elGrillaPixeles.append($("<div>"));
+    }
 }
 generaGrilla();
 
@@ -52,28 +53,28 @@ generaGrilla();
  * id #indicador-de-color y setea en letras el color en el elemento con 
  * id #indicador-de-color-mensaje
  */
-$elPaleta.children().click(function(){
+$elPaleta.children().click(function () {
     var $color = $(this).css("background-color");
     $("#indicador-de-color").css({"background-color": $color});
     $("#indicador-de-color-mensaje").html($color);
-  }); 
+});
 
 /*
  * Al elemento desendiente de $elGrillaPixeles se le agrega un evento cuando se
  * hace click. Guarda en la variable $color el color que esta en el elemnto 
  * con id #indicador-de-color 
  */
-$elGrillaPixeles.children().click(function(){
-    var $color= $("#indicador-de-color").css("background-color");
-    $(this).css({"background-color":$color});
- });
- 
+$elGrillaPixeles.children().click(function () {
+    var $color = $("#indicador-de-color").css("background-color");
+    $(this).css({"background-color": $color});
+});
+
 // Variable para guardar el elemento 'color-personalizado'
 // Es decir, el que se elige con la rueda de color.
 //var colorPersonalizado = document.getElementById('color-personalizado');
 var $colorPersonalizado = $("#color-personalizado");
 
-$colorPersonalizado.change(function(){
+$colorPersonalizado.change(function () {
     // Se guarda el color de la rueda en colorActual
     var $colorActual = $colorPersonalizado.val();
     // Completar para que cambie el indicador-de-color al colorActual
@@ -94,17 +95,17 @@ var $ratonApretado = false;
  * Si la variable $ratonApretado es verdadera pinta la celda del color
  * */
 $elGrillaPixeles.children()
-    .mousedown(function(){
-        $ratonApretado = true;
-    })
-    .mouseup(function(){
-        $ratonApretado = false;
-    })
-    .mousemove(function(){
-        var $color = $("#indicador-de-color").css("background-color");
-        console.log("Dentro de mousemove - "+$ratonApretado);
+        .mousedown(function () {
+            $ratonApretado = true;
+        })
+        .mouseup(function () {
+            $ratonApretado = false;
+        })
+        .mousemove(function () {
+            var $color = $("#indicador-de-color").css("background-color");
+            console.log("Dentro de mousemove - " + $ratonApretado);
 
-        if($ratonApretado){
-            $(this).css({"background-color": $color});
-        }
-});
+            if ($ratonApretado) {
+                $(this).css({"background-color": $color});
+            }
+        });
