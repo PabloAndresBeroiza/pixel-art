@@ -28,7 +28,7 @@ var $elGrillaPixeles = $("#grilla-pixeles");
  * Genera dinamicamente la paleta de colores
  */
 function generarPaletaDeColores() { 
-    nombreColores.forEach(function paleta(color){
+    nombreColores.forEach(function(color){
         var $color = $('<div>',{"class":'color_paleta'}).css({"background-color": color});
         $elPaleta.append($color);
       });
@@ -37,25 +37,25 @@ function generarPaletaDeColores() {
 generarPaletaDeColores();
 
 /**
- * funcion que crea la grilla. Inserta un div por cada pixel.
+ * funcion que genera la grilla. Inserta un div por cada pixel.
  */
-function grilla(){
+function generaGrilla(){
     for (var i=0; i<=1748; i++){
     $elGrillaPixeles.append($("<div>"));
    }
-  }
-grilla();
+}
+generaGrilla();
 
-// Variable para guardar el elemento 'color-personalizado'
-// Es decir, el que se elige con la rueda de color.
-var colorPersonalizado = document.getElementById('color-personalizado');
+/*
+ * Al elemento desendiente del la $elPaleta se le agrega un evento cuendo hace
+ * click en el color de la paleta. Lo toma y lo muestra en elemento con 
+ * id #indicador-de-color y setea en letras el color en el elemento con 
+ * id #indicador-de-color-mensaje
+ */
+$elPaleta.children().click(function(){
+    var $color = $(this).css("background-color");
+    $("#indicador-de-color").css({"background-color": $color});
+    $("#indicador-de-color-mensaje").html($color);
+  }); 
 
-colorPersonalizado.addEventListener('change', 
-  (function() {
-    // Se guarda el color de la rueda en colorActual
-    colorActual = colorPersonalizado.value;
-    // Completar para que cambie el indicador-de-color al colorActual
 
-
-  })
-);
