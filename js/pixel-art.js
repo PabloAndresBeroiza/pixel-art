@@ -109,3 +109,8 @@ $elGrillaPixeles.children()
                 $(this).css({"background-color": $color});
             }
         });
+
+var $botonBorrar = $("#borrar");
+$botonBorrar.click(function(){
+    $elGrillaPixeles.children().animate({"background-color":"white"},2000, "swing");
+});
