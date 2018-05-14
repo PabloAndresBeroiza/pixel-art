@@ -139,3 +139,11 @@ var $batman = $("#batman");
   $("#invisible").click(function(){
     cargarSuperheroe(invisible);
   });
+  
+  /*
+   * Funcion guardar
+   */
+  var $guardar = $("#guardar");
+  $guardar.click(function(){
+    guardarPixelArt();
+  });
