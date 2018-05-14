@@ -110,7 +110,32 @@ $elGrillaPixeles.children()
             }
         });
 
+
+/*
+ * funcion "borra" que deja en blanco lo que esta en la grilla
+ */
 var $botonBorrar = $("#borrar");
 $botonBorrar.click(function(){
     $elGrillaPixeles.children().animate({"background-color":"white"},2000, "swing");
 });
+
+/*
+ * Se cargan los superheroes a la grilla
+ */
+
+var $batman = $("#batman"); 
+  $batman.click(function(){
+    cargarSuperheroe(batman);
+  });
+  var $wonder = $("#wonder");
+  $("#wonder").click(function(){
+    cargarSuperheroe(wonder);
+  });
+  var $flash = $("#flash");
+  $("#flash").click(function(){
+    cargarSuperheroe(flash);
+  });
+  var $invisible = $("#invisible")
+  $("#invisible").click(function(){
+    cargarSuperheroe(invisible);
+  });
