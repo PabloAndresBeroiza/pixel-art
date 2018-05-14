@@ -28,7 +28,7 @@ var $elGrillaPixeles = $("#grilla-pixeles");
  * Genera dinamicamente la paleta de colores
  */
 function generarPaletaDeColores() {
-    $.each($nombreColores, function(i, color){
+    $.each($nombreColores, function (i, color) {
         var $divHijo = $('<div>', {"class": 'color_paleta'}).css({"background-color": color});
         console.log(color);
         $elPaleta.append($divHijo);
@@ -115,35 +115,74 @@ $elGrillaPixeles.children()
  * funcion "borra" que deja en blanco lo que esta en la grilla
  */
 var $botonBorrar = $("#borrar");
-$botonBorrar.click(function(){
-    $elGrillaPixeles.children().animate({"background-color":"white"},2000, "swing");
+$botonBorrar.click(function () {
+    $elGrillaPixeles.children().animate({"background-color": "white"}, 2000, "swing");
 });
 
 /*
  * Se cargan los superheroes a la grilla
  */
 
-var $batman = $("#batman"); 
-  $batman.click(function(){
+var $batman = $("#batman");
+$batman.click(function () {
     cargarSuperheroe(batman);
-  });
-  var $wonder = $("#wonder");
-  $("#wonder").click(function(){
+});
+var $wonder = $("#wonder");
+$("#wonder").click(function () {
     cargarSuperheroe(wonder);
-  });
-  var $flash = $("#flash");
-  $("#flash").click(function(){
+});
+var $flash = $("#flash");
+$("#flash").click(function () {
     cargarSuperheroe(flash);
-  });
-  var $invisible = $("#invisible")
-  $("#invisible").click(function(){
+});
+var $invisible = $("#invisible")
+$("#invisible").click(function () {
     cargarSuperheroe(invisible);
-  });
-  
-  /*
-   * Funcion guardar
-   */
-  var $guardar = $("#guardar");
-  $guardar.click(function(){
+});
+
+/*
+ * Funcion guardar
+ */
+var $guardar = $("#guardar");
+$guardar.click(function () {
     guardarPixelArt();
-  });
+});
+
+
+/*
+ * Les pongo la propiedad arrastable(draggable) a todos los elementos li que 
+ * desienden del ul con id super-heroes
+ */
+$('#super-heroes li').draggable({helper:'clone'});
+
+/*
+ * Le asigno la propiedad soltable (droppable) al elemnto con id grilla-pixeles
+ * En este elemento soltamos los superheroes y le asignamos una accion.
+ * En este caso carga al superheroe. 
+ */
+$('#grilla-pixeles div').droppable({
+    drop:function(event, ui){
+        var elementoSoltado = ui.draggable;
+        console.log(elementoSoltado.data('nombre'));
+        var $nombre = elementoSoltado.data('nombre');
+//        cargarSuperheroe($nombre); no puedo pasar por parametro la variable
+        
+        switch ($nombre) {
+            case "batman":
+                cargarSuperheroe(batman);
+                break;
+            case "wonder":
+                cargarSuperheroe(wonder);
+                break;
+            case "flash":
+                cargarSuperheroe(flash);
+                break;
+            case "invisible":
+                cargarSuperheroe(invisible);
+                break;
+            default:
+                console.log("No es superheroe");
+                break;
+        }
+    }
+});
