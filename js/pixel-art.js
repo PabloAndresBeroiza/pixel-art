@@ -35,7 +35,7 @@ var $elGrillaPixeles = $("#grilla-pixeles");
 function generarPaletaDeColores() {
     $.each($nombreColores, function (i, color) {
         var $divHijo = $('<div>', {"class": 'color_paleta'}).css({"background-color": color});
-        console.log(color);
+        console.log(color+", "+i);
         $elPaleta.append($divHijo);
     });
 }
@@ -71,8 +71,8 @@ $elPaleta.children().click(function () {
  */
 $elGrillaPixeles.children().click(function () {
     var $color = $("#indicador-de-color").css("background-color");
-    $(this).css({"background-color": $color});
-});
+    $(this).css({"background-color": $color});    
+});  
 
 // Variable para guardar el elemento 'color-personalizado'
 // Es decir, el que se elige con la rueda de color.
@@ -120,7 +120,7 @@ $elGrillaPixeles.children()
  * funcion "borra" que deja en blanco lo que esta en la grilla
  */
 var $botonBorrar = $("#borrar");
-$botonBorrar.click(function () {
+$botonBorrar.click(function(){
     $elGrillaPixeles.children().animate({"background-color": "white"}, 2000, "swing");
 });
 
@@ -129,19 +129,19 @@ $botonBorrar.click(function () {
  */
 
 var $batman = $("#batman");
-$batman.click(function () {
+$batman.click(function(){
     cargarSuperheroe(batman);
 });
 var $wonder = $("#wonder");
-$("#wonder").click(function () {
+$("#wonder").click(function(){
     cargarSuperheroe(wonder);
 });
 var $flash = $("#flash");
-$("#flash").click(function () {
+$("#flash").click(function(){
     cargarSuperheroe(flash);
 });
-var $invisible = $("#invisible")
-$("#invisible").click(function () {
+var $invisible = $("#invisible");
+$("#invisible").click(function(){
     cargarSuperheroe(invisible);
 });
 
@@ -170,7 +170,7 @@ $('#grilla-pixeles div').droppable({
         var elementoSoltado = ui.draggable;
         console.log(elementoSoltado.data('nombre'));
         var $nombre = elementoSoltado.data('nombre');
-//        cargarSuperheroe($nombre); no puedo pasar por parametro la variable
+        // cargarSuperheroe($nombre); //no puedo pasar por parametro la variable
         
         switch ($nombre) {
             case "batman":
